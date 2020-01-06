@@ -15,9 +15,16 @@ use Slim\Exception\HttpNotFoundException as HttpNotFoundException;
 //require __DIR__.'/util_up.php';
 
 require 'util/util_up.php';
+require 'util/util_model.php';
 use App\Util\UtilUp as UtilUp;
+use App\Util\UtilModel as UtilModel;
 
-
+// RedBeanPHP ORM
+require __DIR__ . '/../vendor/z_redbeanphp/rb.php';
+/*
+R::setup();
+R::useFeatureSet( 'novice/latest' );
+*/
 
 //
 $app = AppFactory::create();
@@ -48,6 +55,19 @@ $app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write("Hello world!");
     return $response;
     */
+    
+    /*
+    //RedBeanPHP
+    //R::setup(); //SQLite
+    R::setup( 'mysql:host=localhost;dbname=my_red_bean_php_database', 'app_user', 'app_pw' );
+    //R::useFeatureSet( 'novice/latest' );
+    $post = R::dispense( 'post' );
+    $post->title = 'My holiday';
+    $id = R::store( $post );
+    */
+
+    $utilModel = new UtilModel(R);
+
 
     // Returning JSON
     $data = array('name' => 'Bob', 'age' => 40);
