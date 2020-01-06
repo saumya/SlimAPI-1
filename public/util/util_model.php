@@ -27,12 +27,11 @@ class UtilModel
 
 		$this->$rbp::setup( 'mysql:host=localhost;dbname=my_red_bean_php_database', 'app_user', 'app_pw' );
 		$this->$rbp::useFeatureSet( 'novice/latest' );
-
+		/*
 		$post = $this->$rbp::dispense( 'post' );
     $post->title = 'My holiday - Nice';
     $id = $this->$rbp::store( $post );
-
-
+    */
 	}
 }
 
