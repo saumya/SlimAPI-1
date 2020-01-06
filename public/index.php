@@ -14,7 +14,7 @@ use Slim\Exception\HttpNotFoundException as HttpNotFoundException;
 //
 //require __DIR__.'/util_up.php';
 
-require 'util_up.php';
+require 'util/util_up.php';
 use App\Util\UtilUp as UtilUp;
 
 
@@ -63,10 +63,16 @@ $app->get('/a/', function (Request $request, Response $response, $args) {
     //
     $utilUp = new UtilUp();
     //
+    /*
     $resultString = 'ClassName is'.$utilUp->className();
     //$response->getBody()->write('/a/ : This is the API URL. '. $utilUp->displayVar() );
     $response->getBody()->write( $resultString );
     return $response;
+    */
+    
+    $response->getBody()->write( $utilUp->info() );
+    return $response
+                ->withHeader('Content-Type', 'application/json');
 });
 
 

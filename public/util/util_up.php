@@ -16,6 +16,15 @@ class UtilUp
     public function className() {
     	return $this->name;
     }
+    public function info(){
+        $data = array(
+                        'name' => 'UtilUp', 
+                        'version' => '0.1.0',
+                        'namespace' => 'App\Util'
+                    );
+        $result = json_encode($data);
+        return $result;
+    }
 }
 
 ?>
