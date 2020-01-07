@@ -29,6 +29,7 @@ R::useFeatureSet( 'novice/latest' );
 //
 $app = AppFactory::create();
 $app->setBasePath( $app_base_path );
+//
 
 
 
@@ -67,6 +68,7 @@ $app->get('/', function (Request $request, Response $response, $args) {
     */
 
     $utilModel = new UtilModel(R);
+    $utilModel->saveTest();
 
 
     // Returning JSON

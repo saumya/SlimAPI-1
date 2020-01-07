@@ -36,6 +36,12 @@ class UtilModel
     $id = $this->$rbp::store( $post );
     */
 	}
+
+	public function saveTest(){
+		$post = $this->$rbp::dispense( 'post' );
+    $post->title = 'My holiday - Nice - saveTest';
+    $id = $this->$rbp::store( $post );
+	}
 }
 
 ?>
