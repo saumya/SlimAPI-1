@@ -31,7 +31,35 @@ RewriteRule ^ index.php [QSA,L]
 
 `http://localhost:8888/3_study/4_php/study_005_slim/2_slimApp/public/apix/`
 `http://localhost:8888/3_study/4_php/study_005_slim/2_slimApp/public/index.php/apix/`
-```
+
++===========================================
+
+
+### RedBeanPHP
+
+ - Database conversation is by `beans`
+ - Every `bean` has a `type` and `id`
+ - The `id` is the `primary key` of the corresponding record
+ - RedBeanPHP will keep changing the `schema` to fit your needs, this is called 'fluid mode'.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,9 @@ class UtilModel
 
 		$this->$rbp::setup( 'mysql:host=localhost;dbname=my_red_bean_php_database', 'app_user', 'app_pw' );
 		$this->$rbp::useFeatureSet( 'novice/latest' );
+		//R::freeze( TRUE );
+		//$this->rbp::freeze( TRUE ); // makes the DB not Fixed. Nothing will change in DB Structure
+
 		/*
 		$post = $this->$rbp::dispense( 'post' );
     $post->title = 'My holiday - Nice';
