@@ -28,6 +28,17 @@ class UtilModel
     $post->title = 'My holiday - Nice - saveTest';
     $id = $this->$rbp::store( $post );
 	}
+
+	public function createUser(){
+		$user = $this->$rbp::dispense( 'users' );
+		$user->user_name = 'TestUser';
+		$user->roleType = '5'; // 1=SU, 2=Admin, 3=SubAdmin1, 4=SubAdmin2, 5=User
+		$user->login_name = 'LoginName';
+		$user->password = 'Password';
+		$id = $this->$rbp::store( $user );
+		return $id;
+	}
+
 }
 
 ?>

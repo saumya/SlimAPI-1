@@ -52,10 +52,6 @@ $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, true, true);
 //
 $app->get('/', function (Request $request, Response $response, $args) {
-    /*
-    $response->getBody()->write("Hello world!");
-    return $response;
-    */
     
     /*
     //RedBeanPHP
@@ -82,16 +78,7 @@ $app->get('/', function (Request $request, Response $response, $args) {
 // The routes
 //
 $app->get('/a/', function (Request $request, Response $response, $args) {
-    //
     $utilUp = new UtilUp();
-    //
-    /*
-    $resultString = 'ClassName is'.$utilUp->className();
-    //$response->getBody()->write('/a/ : This is the API URL. '. $utilUp->displayVar() );
-    $response->getBody()->write( $resultString );
-    return $response;
-    */
-    
     $response->getBody()->write( $utilUp->info() );
     return $response
                 ->withHeader('Content-Type', 'application/json');
@@ -99,7 +86,7 @@ $app->get('/a/', function (Request $request, Response $response, $args) {
 
 
 
-
+// ======================= API : 0.1.0 =============================
 $app->group('/api/v0/', function (RouteCollectorProxy $group) {
     $group->get('c/', function ($request, $response, $args) {
     	$data = array(
@@ -121,7 +108,32 @@ $app->group('/api/v0/', function (RouteCollectorProxy $group) {
     	$response->getBody()->write('/b/e/');
     	return $response;
     });
+    // ============== User ==============
+    $group->group('user/', function (RouteCollectorProxy $group) {
+        $group->get('add/', function ($request, $response, $args) {
+            /*
+            $response->getBody()->write('User : Add');
+            return $response;
+            */
+
+            $utilModel = new UtilModel(R);
+            $newUserID = $utilModel->createUser();
+
+            $response->getBody()->write( 'New User id='.$newUserID );
+            return $response; 
+        });
+        $group->get('update/', function ($request, $response, $args) {
+            $response->getBody()->write('User : Update');
+            return $response;
+        });
+        $group->get('delete/', function ($request, $response, $args) {
+            $response->getBody()->write('User : Delete');
+            return $response;
+        });
+    });
+    
 });
+// ======================= API : 0.1.0 / =============================
 //
 $app->group('/api/db/v1/', function (RouteCollectorProxy $group) {
     $group->get('hi1/', function ($request, $response, $args) {
