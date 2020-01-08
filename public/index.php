@@ -136,8 +136,16 @@ $app->group('/api/v0/', function (RouteCollectorProxy $group) {
     // ============== Meeting ==============
     $group->group('meeting/', function (RouteCollectorProxy $group) {
         $group->get('add/', function ($request, $response, $args) {
+            /*
             $response->getBody()->write('Meeting : Add');
             return $response;
+            */
+            //
+            $utilModel = new UtilModel(R);
+            $newMeetingID = $utilModel->createMeeting();
+            $response->getBody()->write( 'New Meeting id='.$newMeetingID );
+            return $response;
+            //
         });
         $group->get('update/', function ($request, $response, $args) {
             $response->getBody()->write('Meeting : Update');

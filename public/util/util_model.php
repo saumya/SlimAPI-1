@@ -30,12 +30,28 @@ class UtilModel
 	}
 
 	public function createUser(){
+
+		$meeting = $this->$rbp::dispense( 'meetings' );
+
 		$user = $this->$rbp::dispense( 'users' );
 		$user->user_name = 'TestUser';
 		$user->roleType = '5'; // 1=SU, 2=Admin, 3=SubAdmin1, 4=SubAdmin2, 5=User
 		$user->login_name = 'LoginName';
 		$user->password = 'Password';
+		// Relations
+		$user->ownMeetingList[] = $meeting; // adds 'users_id' ForeignKey to 'meetings' table
+		// Save in DB
 		$id = $this->$rbp::store( $user );
+		return $id;
+	}
+
+	public function createMeeting(){
+		$meeting = $this->$rbp::dispense( 'meetings' );
+		$meeting->meeting_name = 'First Meet 2020';
+		$meeting->type = 'Old Friends Meet';
+		$meeting->onDate = '2020-01-10';
+		$meeting->onLocation = 'The New Hotel';
+		$id = $this->$rbp::store( $meeting );
 		return $id;
 	}
 
