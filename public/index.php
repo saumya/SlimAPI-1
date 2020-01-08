@@ -157,6 +157,16 @@ $app->group('/api/v0/', function (RouteCollectorProxy $group) {
         });
     });
     // ============== Meeting / ==============
+    // ============== Present ==============
+    $group->group('present/', function (RouteCollectorProxy $group) {
+        $group->get('mark/', function ($request, $response, $args) {
+            $utilModel = new UtilModel(R);
+            $newMeetingID = $utilModel->markPresent( 1, 1 );
+            $response->getBody()->write( 'New Presnt id='.$newMeetingID );
+            return $response;
+        });
+    });
+    // ============== Present / ==============
     
 });
 // ======================= API : 0.1.0 / =============================

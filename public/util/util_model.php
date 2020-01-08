@@ -31,27 +31,43 @@ class UtilModel
 
 	public function createUser(){
 
-		$meeting = $this->$rbp::dispense( 'meetings' );
-
+		//$meeting = $this->$rbp::dispense( 'meetings' );
+		$present = $this->$rbp::dispense( 'presents' );
+		//
 		$user = $this->$rbp::dispense( 'users' );
 		$user->user_name = 'TestUser';
 		$user->roleType = '5'; // 1=SU, 2=Admin, 3=SubAdmin1, 4=SubAdmin2, 5=User
 		$user->login_name = 'LoginName';
 		$user->password = 'Password';
 		// Relations
-		$user->ownMeetingList[] = $meeting; // adds 'users_id' ForeignKey to 'meetings' table
+		//$user->ownMeetingList[] = $meeting; // adds 'users_id' ForeignKey to 'meetings' table
+		$user->ownPresentList[] = $present; // adds 'users_id' ForeignKey to 'presents' table
 		// Save in DB
 		$id = $this->$rbp::store( $user );
 		return $id;
 	}
 
 	public function createMeeting(){
+		//
+		$present = $this->$rbp::dispense( 'presents' );
+		//
 		$meeting = $this->$rbp::dispense( 'meetings' );
 		$meeting->meeting_name = 'First Meet 2020';
 		$meeting->type = 'Old Friends Meet';
 		$meeting->onDate = '2020-01-10';
 		$meeting->onLocation = 'The New Hotel';
+		//
+		$meeting->ownPresentList[] = $present; // adds 'users_id' ForeignKey to 'presents' table
+		//
 		$id = $this->$rbp::store( $meeting );
+		return $id;
+	}
+
+	public function markPresent( $userId, $meetingId ){
+		$present = $this->$rbp::dispense( 'presents' );
+		$present->meetingsId = $userId;
+		$present->usersId = $meetingId;
+		$id = $this->$rbp::store( $present );
 		return $id;
 	}
 
