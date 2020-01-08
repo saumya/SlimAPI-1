@@ -1,5 +1,7 @@
-Slim App
-=================
+API | Slim, RedBeansPHP
+=========================
+
+A learning project for [Slim][1] and [RedBeansPHP][2] ORM. It uses [Composer][3].
 
 
 ```
@@ -50,6 +52,12 @@ RewriteRule ^ index.php [QSA,L]
 
 
 
+
+
+
+[1]: https://www.slimframework.com/
+[2]: https://www.redbeanphp.com
+[3]: https://getcomposer.org/
 
 
 
