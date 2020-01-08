@@ -3,6 +3,9 @@ API | Slim, RedBeansPHP
 
 A learning project for [Slim][1] and [RedBeansPHP][2] ORM. It uses [Composer][3].
 
+While using `Composer`, make sure you are using the latest version of PHP CLI and `Composer` binary.
+
+
 
 ```
 sudo /Applications/MAMP/bin/php/php7.3.8/bin/php composer_1.9.1.phar require slim/slim:"4.*"
