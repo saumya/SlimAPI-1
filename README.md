@@ -12,7 +12,7 @@ sudo /Applications/MAMP/bin/php/php7.3.8/bin/php composer_1.9.1.phar require pro
 
 
 
-### Note
+### .htaccess
 
 `.htaccess` in the application root folder
 
@@ -23,7 +23,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]
 ```
 
-### Note - the call to API
+### The call to API
 
 
 `index.php/apix/` : call without `.htaccess`
@@ -31,8 +31,6 @@ RewriteRule ^ index.php [QSA,L]
 
 `http://localhost:8888/3_study/4_php/study_005_slim/2_slimApp/public/apix/`
 `http://localhost:8888/3_study/4_php/study_005_slim/2_slimApp/public/index.php/apix/`
-
-+===========================================
 
 
 ### RedBeanPHP
@@ -43,6 +41,12 @@ RewriteRule ^ index.php [QSA,L]
  - RedBeanPHP will keep changing the `schema` to fit your needs, this is called 'fluid mode'.
 
 
+
+### API
+
+ - Meeting : http://localhost:8888/3_study/4_php/study_005_slim/3_slimApp/public/api/v0/meeting/add/
+ - User    : http://localhost:8888/3_study/4_php/study_005_slim/3_slimApp/public/api/v0/user/add/
+ - Present : http://localhost:8888/3_study/4_php/study_005_slim/3_slimApp/public/api/v0/present/mark/
 
 
 
