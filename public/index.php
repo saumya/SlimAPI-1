@@ -108,6 +108,7 @@ $app->group('/api/v0/', function (RouteCollectorProxy $group) {
     	$response->getBody()->write('/b/e/');
     	return $response;
     });
+    // /api/v0/user/add/
     // ============== User ==============
     $group->group('user/', function (RouteCollectorProxy $group) {
         $group->get('add/', function ($request, $response, $args) {
@@ -131,6 +132,23 @@ $app->group('/api/v0/', function (RouteCollectorProxy $group) {
             return $response;
         });
     });
+    // ============== User / ==============
+    // ============== Meeting ==============
+    $group->group('meeting/', function (RouteCollectorProxy $group) {
+        $group->get('add/', function ($request, $response, $args) {
+            $response->getBody()->write('Meeting : Add');
+            return $response;
+        });
+        $group->get('update/', function ($request, $response, $args) {
+            $response->getBody()->write('Meeting : Update');
+            return $response;
+        });
+        $group->get('delete/', function ($request, $response, $args) {
+            $response->getBody()->write('Meeting : Delete');
+            return $response;
+        });
+    });
+    // ============== Meeting / ==============
     
 });
 // ======================= API : 0.1.0 / =============================
